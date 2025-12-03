@@ -3,357 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Тестирование функций JavaScript</title>
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        body {
-            background-color: #f5f7fa;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            padding: 20px;
-        }
-        
-        .container {
-            width: 100%;
-            max-width: 600px;
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            padding: 30px;
-        }
-        
-        h1 {
-            color: #2575fc;
-            text-align: center;
-            margin-bottom: 30px;
-            font-size: 1.8rem;
-        }
-        
-        .test-section {
-            width: 100%;
-        }
-        
-        .test-controls {
-            margin-bottom: 25px;
-        }
-        
-        select {
-            width: 100%;
-            padding: 12px;
-            margin-bottom: 15px;
-            border: 2px solid #ddd;
-            border-radius: 5px;
-            font-size: 1rem;
-            background-color: white;
-        }
-        
-        select:focus {
-            border-color: #2575fc;
-            outline: none;
-        }
-        
-        .input-group {
-            margin-bottom: 15px;
-        }
-        
-        .input-group label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: 600;
-            color: #444;
-        }
-        
-        .input-group input {
-            width: 100%;
-            padding: 12px;
-            border: 2px solid #ddd;
-            border-radius: 5px;
-            font-size: 1rem;
-        }
-        
-        .input-group input:focus {
-            border-color: #2575fc;
-            outline: none;
-        }
-        
-        button {
-            background: linear-gradient(to right, #2575fc, #6a11cb);
-            color: white;
-            border: none;
-            padding: 14px 25px;
-            font-size: 1rem;
-            border-radius: 5px;
-            cursor: pointer;
-            width: 100%;
-            font-weight: 600;
-            transition: all 0.3s;
-            margin-top: 10px;
-        }
-        
-        button:hover {
-            opacity: 0.7;
-        }
-        
-        .result {
-            background-color: #e8f4fd;
-            padding: 20px;
-            border-radius: 5px;
-            margin-top: 25px;
-            display: none;
-        }
-        
-        .result h3 {
-            color: #2575fc;
-            margin-bottom: 10px;
-        }
-        
-        .result pre {
-            background-color: white;
-            padding: 15px;
-            border-radius: 5px;
-            overflow-x: auto;
-            font-family: monospace;
-            font-size: 0.95rem;
-        }
-    </style>
+    <title>Тестирование функций</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
-        <h1>Тестирование функций JavaScript</h1>
-        
+        <h1><i class="fas fa-code"></i> Тестирование функций</h1>
         <section class="test-section">
             <div class="test-controls">
                 <label for="functionSelect">Выберите функцию для тестирования:</label>
                 <select id="functionSelect">
-                    <option value="sumThree">1. Сложение трёх чисел</option>
-                    <option value="lastChar">2. Последний символ строки</option>
-                    <option value="isTrue">3. Проверка значения</option>
-                    <option value="removeKey">4. Удаление свойства из объекта</option>
-                    <option value="addToEnd">5. Добавление элемента в конец массива</option>
-                    <option value="toUpperCase">6. Преобразование строк в верхний регистр</option>
-                    <option value="numbersToStrings">7. Приведение чисел к строкам</option>
+                    <optgroup label="Числа">
+                        <option value="sumThree">1. Сложение трёх чисел</option>
+                        <option value="isNegative">2. Проверка на отрицательное число</option>
+                        <option value="multiply">3. Умножение чисел</option>
+                        <option value="isInteger">4. Определение целого числа</option>
+                        <option value="percentage">5. Подсчет процента</option>
+                    </optgroup>
+
+                    <optgroup label="Строки">
+                        <option value="lastChar">6. Последний символ строки</option>
+                        <option value="toLower">7. Преобразование строки в нижний регистр</option>
+                        <option value="contains">8. Проверка вхождения подстроки</option>
+                        <option value="repeatTwice">9. Удвоение строки</option>
+                        <option value="trimSpaces">10. Удаление пробелов с начала и конца строки</option>
+                    </optgroup>
+
+                    <optgroup label="Булевы значения">
+                        <option value="andNot">11. Логическое "И НЕ"</option>
+                        <option value="isTrue">12. Проверка значения</option>
+                        <option value="isSame">13. Сравнение двух логических значений</option>
+                        <option value="xor">14. Логическое исключающее "ИЛИ"</option>
+                        <option value="toggle">15. Обратное значение</option>
+                    </optgroup>
+
+                    <optgroup label="Объекты">
+                        <option value="hasKey">16. Проверка существования свойства</option>
+                        <option value="getKeys">17. Получение всех ключей объекта</option>
+                        <option value="isEqual">18. Сравнение двух объектов</option>
+                        <option value="removeKey">19. Удаление свойства из объекта</option>
+                        <option value="isValueEqual">20. Проверка значения свойства</option>
+                    </optgroup>
+
+                    <optgroup label="Массивы">
+                        <option value="createArray">21. Создание массива из чисел</option>
+                        <option value="containsArray">22. Проверка элемента в массиве</option>
+                        <option value="getLength">23. Длина массива</option>
+                        <option value="addToEnd">24. Добавление элемента в конец массива</option>
+                        <option value="getLastElement">25. Получение последнего элемента массива</option>
+                    </optgroup>
+
+                    <optgroup label="Метод forEach">
+                        <option value="logElements">26. Вывод всех элементов массива в консоль</option>
+                        <option value="sumArray">27. Сумма чисел массива</option>
+                        <option value="toUpperCase">28. Преобразование строк в верхний регистр</option>
+                        <option value="countNegatives">29. Подсчёт количества отрицательных чисел</option>
+                        <option value="logEven">30. Проверка чётных чисел</option>
+                    </optgroup>
+
+                    <optgroup label="Метод map">
+                        <option value="squareNumbers">31. Квадраты чисел</option>
+                        <option value="doubleElements">32. Удвоение элементов массива</option>
+                        <option value="getFirstLetters">33. Извлечение первых букв строк</option>
+                        <option value="addPrefix">34. Добавление префикса к строкам</option>
+                        <option value="numbersToStrings">35. Приведение чисел к строкам</option>
+                    </optgroup>
                 </select>
                 
                 <div id="inputFields">
-                    <!-- Поля для ввода будут генерироваться динамически -->
                 </div>
                 
-                <button id="testButton">Протестировать функцию</button>
+                <button id="testButton"><i class="fas fa-play"></i> Протестировать функцию</button>
             </div>
             
             <div class="result" id="result">
-                <h3>Результат выполнения:</h3>
+                <h3><i class="fas fa-clipboard-check"></i> Результат выполнения:</h3>
                 <pre id="resultOutput"></pre>
             </div>
         </section>
     </div>
 
-    <script>
-        // Реализация функций
-        function sumThree(a, b, c) {
-            return a + b + c;
-        }
-
-        function lastChar(str) {
-            return str.charAt(str.length - 1);
-        }
-
-        function isTrue(value) {
-            return value === true;
-        }
-
-        function removeKey(obj, key) {
-            delete obj[key];
-            return obj;
-        }
-
-        function addToEnd(array, element) {
-            array.push(element);
-            return array;
-        }
-
-        function toUpperCase(array) {
-            return array.map(item => {
-                if (typeof item === 'string') {
-                    return item.toUpperCase();
-                }
-                return item;
-            });
-        }
-
-        function numbersToStrings(array) {
-            return array.map(item => {
-                if (typeof item === 'number') {
-                    return item.toString();
-                }
-                return item;
-            });
-        }
-
-        // Генерация полей ввода в зависимости от выбранной функции
-        const functionSelect = document.getElementById('functionSelect');
-        const inputFields = document.getElementById('inputFields');
-        const testButton = document.getElementById('testButton');
-        const resultDiv = document.getElementById('result');
-        const resultOutput = document.getElementById('resultOutput');
-
-        function updateInputFields() {
-            const selectedFunction = functionSelect.value;
-            let html = '';
-            
-            switch(selectedFunction) {
-                case 'sumThree':
-                    html = `
-                        <div class="input-group">
-                            <label for="input1">Первое число (a):</label>
-                            <input type="number" id="input1" value="5">
-                        </div>
-                        <div class="input-group">
-                            <label for="input2">Второе число (b):</label>
-                            <input type="number" id="input2" value="3">
-                        </div>
-                        <div class="input-group">
-                            <label for="input3">Третье число (c):</label>
-                            <input type="number" id="input3" value="7">
-                        </div>
-                    `;
-                    break;
-                    
-                case 'lastChar':
-                    html = `
-                        <div class="input-group">
-                            <label for="input1">Строка:</label>
-                            <input type="text" id="input1" value="JavaScript">
-                        </div>
-                    `;
-                    break;
-                    
-                case 'isTrue':
-                    html = `
-                        <div class="input-group">
-                            <label for="input1">Значение (true/false):</label>
-                            <input type="text" id="input1" value="true">
-                        </div>
-                    `;
-                    break;
-                    
-                case 'removeKey':
-                    html = `
-                        <div class="input-group">
-                            <label for="input1">Объект (в формате JSON):</label>
-                            <input type="text" id="input1" value='{"name": "John", "age": 30, "city": "Moscow"}'>
-                        </div>
-                        <div class="input-group">
-                            <label for="input2">Ключ для удаления:</label>
-                            <input type="text" id="input2" value="age">
-                        </div>
-                    `;
-                    break;
-                    
-                case 'addToEnd':
-                    html = `
-                        <div class="input-group">
-                            <label for="input1">Массив (в формате JSON):</label>
-                            <input type="text" id="input1" value='[1, 2, 3]'>
-                        </div>
-                        <div class="input-group">
-                            <label for="input2">Элемент для добавления:</label>
-                            <input type="text" id="input2" value="4">
-                        </div>
-                    `;
-                    break;
-                    
-                case 'toUpperCase':
-                    html = `
-                        <div class="input-group">
-                            <label for="input1">Массив (в формате JSON):</label>
-                            <input type="text" id="input1" value='["apple", "banana", "cherry"]'>
-                        </div>
-                    `;
-                    break;
-                    
-                case 'numbersToStrings':
-                    html = `
-                        <div class="input-group">
-                            <label for="input1">Массив (в формате JSON):</label>
-                            <input type="text" id="input1" value='[1, "text", 3.14, true, 42]'>
-                        </div>
-                    `;
-                    break;
-            }
-            
-            inputFields.innerHTML = html;
-        }
-
-        // Обработчик тестирования функции
-        testButton.addEventListener('click', function() {
-            const selectedFunction = functionSelect.value;
-            let result;
-            
-            try {
-                switch(selectedFunction) {
-                    case 'sumThree':
-                        const a = parseFloat(document.getElementById('input1').value);
-                        const b = parseFloat(document.getElementById('input2').value);
-                        const c = parseFloat(document.getElementById('input3').value);
-                        result = sumThree(a, b, c);
-                        break;
-                        
-                    case 'lastChar':
-                        const str = document.getElementById('input1').value;
-                        result = lastChar(str);
-                        break;
-                        
-                    case 'isTrue':
-                        const value = document.getElementById('input1').value;
-                        const boolValue = value === 'true' || value === '1';
-                        result = isTrue(boolValue);
-                        break;
-                        
-                    case 'removeKey':
-                        const obj = JSON.parse(document.getElementById('input1').value);
-                        const key = document.getElementById('input2').value;
-                        result = removeKey({...obj}, key);
-                        break;
-                        
-                    case 'addToEnd':
-                        const array = JSON.parse(document.getElementById('input1').value);
-                        const elementInput = document.getElementById('input2').value;
-                        let element = isNaN(elementInput) ? elementInput : Number(elementInput);
-                        if (elementInput === 'true') element = true;
-                        if (elementInput === 'false') element = false;
-                        result = addToEnd([...array], element);
-                        break;
-                        
-                    case 'toUpperCase':
-                        const arr1 = JSON.parse(document.getElementById('input1').value);
-                        result = toUpperCase([...arr1]);
-                        break;
-                        
-                    case 'numbersToStrings':
-                        const arr2 = JSON.parse(document.getElementById('input1').value);
-                        result = numbersToStrings([...arr2]);
-                        break;
-                }
-                
-                resultOutput.textContent = JSON.stringify(result, null, 2);
-                resultDiv.style.display = 'block';
-            } catch (error) {
-                resultOutput.textContent = 'Ошибка: ' + error.message;
-                resultDiv.style.display = 'block';
-            }
-        });
-
-        functionSelect.addEventListener('change', updateInputFields);
-        updateInputFields();
-    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></script>
+    <script src="functions.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
